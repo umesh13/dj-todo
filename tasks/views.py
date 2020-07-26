@@ -26,7 +26,7 @@ def updateTask(request , pk):
 	task = Task.objects.get(id=pk)
 	form = TaskForm(instance=task)
 	if request.method == 'POST':
-		form = TaskForm(request.POST , instance=task)
+		form = TaskForm(request.POST , instance=task) #Without instance, the date will be saves as new entry
 		if form.is_valid:
 			form.save()
 			return redirect('/')
@@ -39,7 +39,7 @@ def updateTask(request , pk):
 
 def deleteTask(request, pk):
 	task = Task.objects.get(id=pk)
-	if request.method == 'POST':
+	if request.method == 'POST': #IF request is coming from user , delete the item else redirect to render 
 		task.delete()
 		return redirect('/')
 	context ={

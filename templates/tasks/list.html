@@ -26,7 +26,7 @@
 		-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 		-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 		box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-		padding: 0 40px 40px; 
+		padding: 0 40px 40px; 	
 		 width: 30%;
  		 margin: 80px auto;
 	}
@@ -70,13 +70,13 @@
 
 	<div class="data-container">
 	<!-- <div class="data"> -->
-	{% if t.completed == True %}
+	{% if t.completed == True %}  <!-- Crossout data that are completed -->
 	<strike>{{t}}</strike>
 	{% else %}
 	<span>{{t}}</span>
 	{% endif %} 
 	<!-- </div> -->
-	<a class="btn btn-update " href="{% url 'update_task' t.id %}">Update</a>
+	<a class="btn btn-update " href="{% url 'update_task' t.id %}">Update</a> <!-- update_task is name given in urls.py -->
 	<a class="btn btn-delete" href="{% url 'delete_task' t.id %}">Delete</a>
 	</div>
 	{%endfor%}
